@@ -1,0 +1,33 @@
+<mat-card class="person-card">
+  <mat-card-header>
+<!--    TODO userpic-->
+    <div mat-card-avatar class="person-header-image"><mat-icon>person</mat-icon></div>
+    <mat-card-title>{{person.fullname()}}</mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+<!--    TODO files-->
+<!--  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+  <mat-card-content>
+    <p *ngIf="person.description">{{person.description}}</p>
+    <p *ngIf="person.bornInFamily">
+      Father: <app-person-simple-link [person]="person.bornInFamily.husband" ></app-person-simple-link><br>
+      Mother: <app-person-simple-link [person]="person.bornInFamily.wife" ></app-person-simple-link><br>
+      <a href = "/family/{{person.bornInFamily.id}}">Link to the family</a>
+    </p>
+
+    <p *ngFor="let family of person.husbandInFamilies">
+      Husband in
+      <a href = "/family/{{family.id}}">family</a>
+      with {{family.fullnameOfWife()}}
+    </p>
+    <p *ngFor="let family of person.wifeInFamilies">
+      Wife in family with {{family.fullnameOfHusband()}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+<!--    TODO Do I need these actions?-->
+<!--    <button mat-button>LIKE</button>-->
+<!--    <button mat-button>SHARE</button>-->
+  </mat-card-actions>
+</mat-card>
+

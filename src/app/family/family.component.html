@@ -1,0 +1,30 @@
+<!--TODO Make it more chartlike-->
+<mat-card class="family-card">
+  <mat-card-header>
+    <mat-card-title>Family
+      <app-person-simple-link [person]="family.husband" ></app-person-simple-link>
+      +
+      <app-person-simple-link [person]="family.wife" ></app-person-simple-link>
+    </mat-card-title>
+    <mat-card-subtitle></mat-card-subtitle>
+  </mat-card-header>
+  <!--    TODO files-->
+  <!--  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+  <mat-card-content>
+    <div *ngIf="family.children.length">
+      <p><b>Children</b></p>
+      <ul>
+      <li *ngFor="let child of family.children">
+        <app-person-simple-link [person]="child" ></app-person-simple-link>
+      </li>
+      </ul>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <!--    TODO Do I need these actions?-->
+    <!--    <button mat-button>LIKE</button>-->
+    <!--    <button mat-button>SHARE</button>-->
+  </mat-card-actions>
+</mat-card>
+
